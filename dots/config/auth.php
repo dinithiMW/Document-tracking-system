@@ -12,6 +12,7 @@ return [
     | as required, but they're a perfect start for most applications.
     |
     */
+ 
 
     'defaults' => [
         'guard' => 'web',
@@ -44,7 +45,17 @@ return [
         'api' => [
             'driver' => 'token',
             'provider' => 'users',
+            'hash' => false,
         ],
+        /*'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins',
+        ],
+
+        'admin-api' => [
+            'driver' => 'token',
+            'provider' => 'admins',
+        ],*/
     ],
 
     /*
@@ -70,10 +81,10 @@ return [
             'model' => App\User::class,
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+         //'admins' => [
+         //  'driver' => 'database',
+         // 'table' => 'users',
+       // ],
     ],
 
     /*

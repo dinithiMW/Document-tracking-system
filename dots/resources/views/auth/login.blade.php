@@ -1,20 +1,26 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<table class="table">
+  <thead>
+    <tr>
+    
+      <th >
+      <div class="container" style=" background-color: #ebebe0;" >
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
+            <div class="panel panel-default"  >
+                <div class="panel-heading" style="color:grey; background-color:  white;"  ><b>Enter Your Login Details</b></div>
 
-                <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('login') }}">
+                <div class="panel-body" >
+                    <form class="form-horizontal" method="POST" action="{{ route('login') }}"  >
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 
                             <div class="col-md-6">
+                            <i class="fa fa-user icon"></i>
                                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
 
                                 @if ($errors->has('email'))
@@ -55,7 +61,7 @@
                                     Login
                                 </button>
 
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                <a class="btn btn-link" href="{{ route('password.request') }}" style="color:white;">
                                     Forgot Your Password?
                                 </a>
                             </div>
@@ -65,5 +71,18 @@
             </div>
         </div>
     </div>
-</div>
+</div></th>
+
+<th scope="col"><li>
+                <a href="">
+              Tel - 0453454519
+              </a>
+              </li></th>
+      
+      
+    </tr>
+  </thead>
+  </table>
+
+  
 @endsection

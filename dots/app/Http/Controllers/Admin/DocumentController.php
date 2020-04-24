@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 use\App\Document;
+use\App\Scand;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class DocumentController extends Controller
 {
-    public function addDocument(){
+  /*  public function addDocument(){
         return view('admin.document');
     }
     public function addNewDocument(Request $request){
@@ -28,7 +29,7 @@ class DocumentController extends Controller
          $document->receiver_branch_name = $request->input('receiver_branch_name');
          $document->save();
          return view('admin.document')->with('response','Document Added Successfully');
- }
+ }*/
   public function registered(){
       $documents = Document::all();
       return view('admin.document')->with('documents',$documents);
@@ -36,5 +37,18 @@ class DocumentController extends Controller
   public function registeredit(Request $request, $document_id){
     $documents =Document::findOrFail($document_id);
     return view('admin.document')->with('documents',$documents);
+ }
+ public function delete(Request $request, $id){
+    $scands = Scand::find($id);
+    $scands-> delete();
+    return redirect('/document')->with('status','Document is deleted');
+}
+public function registeredscan(){
+    $scands =Scand::all();
+    return view('admin.document')->with('scands',$scands);
+}
+public function scandedit(Request $request, $id){
+    $scands =Scand::findOrFail($id);
+    return view('admin.document')->with('scands',$scands);
  }
 }

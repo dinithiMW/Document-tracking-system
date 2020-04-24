@@ -12,45 +12,27 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h4 class="card-title"> Your Details</h4>
+                <h4 class="card-title"> DASHBOARD</h4>
               </div>
               <div class="card-body">
-                <div class="table-responsive"> 
-                <!--
-                  <table class="table">
-                    <thead class=" text-primary">
-                      <th>
-                        Name
-                      </th>
-                      <th>
-                        Country
-                      </th>
-                      <th>
-                        City
-                      </th>
-                      
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>
-                          Dakota Rice
-                        </td>
-                        <td>
-                          Niger
-                        </td>
-                        <td>
-                          Oud-Turnhout
-                        </td>
-                        
-                      </tr>
-                      
-                        
-                      </tr>
-                    </tbody>
-                  </table>  -->
+                <div class="container p-3 my-3 bg-dark text-white">
+                <h4>TOTAL NUMBER OF CURRENT DOCUMENTS : {{ $barcodes }}</h4>
+                
+
+                
+                
+                <button type="button" class="btn btn-info btn-lg" ><a href="/document" style="color:white">MANAGE DOCUMENTS </a></button>
+                <button type="button" class="btn btn-info btn-lg" ><a href="/role-register" style="color:white">MANAGE PROFILES</a> </button>
+                
+                
+
+               
+               
                 </div>
               </div>
             </div>
+
+           
 @endsection
 
 

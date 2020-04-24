@@ -1,19 +1,4 @@
-<!--
 
-=========================================================
-* Now UI Dashboard - v1.5.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/now-ui-dashboard
-* Copyright 2019 Creative Tim (http://www.creative-tim.com)
-
-* Designed by www.invisionapp.com Coded by www.creative-tim.com
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
--->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,10 +15,13 @@
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   <!-- CSS Files -->
+  <link href="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"  />
   <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
   <link href="../assets/css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/demo/demo.css" rel="stylesheet" />
+  <!--<link href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" /> -->
+  <link rel="stylesheet" href="{{ asset('assets/css/dataTables.min.css') }}"  >
   <style>
   .dropdown {
   position: relative;
@@ -53,75 +41,141 @@
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
+#header {
+	background-color:#ccebff ;
+	margin: 20px; 
+	font-size: 30px;
+	border-radius: 5px;
+	font-color:#000033;
+	
+}
+#navbar ul {
+	padding: 15px;
+	list-style-type: none;
+	background-color: #668cff ;
+	margin: 10px; 
+	border-radius: 5px; 
+	text-align: center;
+}
+
+#navbar ul li {
+	
+	display: inline-block   ;
+}
+
+#navbar ul li a {
+	text-decoration: none;
+	font-family: Arial;
+	padding-right: 10PX;
+	padding-left: 10PX;
+	color: #fff;
+	background-color: #668cff; 
+	margin:20px;
+}
+
+#navbar ul li a:hover {
+	
+	color: #668cff;
+	background-color: #fff; 
+}
+
+
+.vl {
+  border-left: 6px solid grey;
+  height: 10px;
+}
+i1 {
+  border: solid grey;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+
+
+.up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+input[type=text]:focus {
+  border: 1px solid #555;
+}
+
+
+
+
   </style>
 </head>
 
-<body class="">
+<body class="">  
   <div class="wrapper ">
-    <div class="sidebar" data-color='red'>
-      <!--
-        Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
-    -->
-      <div class="logo">
-       <h3>CoAdmin Dashboard<h3>
-      </div>
+    <div class="sidebar" data-color='white'>
+      
+       
+    <div class="logo"><br><br>
+    <img src="{{ URL::to('/assets/img/1.png') }}" alt="Smiley face" style="float:left;width:40px;height:40px;"> 
+       <h5 style="color:rgb(19, 4, 48)" &nbsp &nbsp>Document Tracker</h5><br><br><br>
+       
+      </div> 
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
-          <li class="{{ 'home' == request()->path() ? 'active' : ''}}">
+        <li class="{{ 'home' == request()->path() ? 'active' : ''}}" >
             <a href="/home">
               <i class="now-ui-icons design_app"></i>
               <p>Dashboard</p>
             </a>
           </li>
-          <li>
-            <a href="./icons.html">
-              <i class="fa fa-fw fa-home"></i>
-              <p> Home</p>
-            </a>
-          </li>
+
           <li class="{{ 'viewdocument' == request()->path() ? 'active' : ''}}">
             <a href="/viewdocument">
-              <i class="glyphicon glyphicon-user"></i>
-              <p> View Documents</p>
+              <i class="fa fa-plus"></i>
+              <p> Scan Barcode</p>
             </a>
           </li>
-          <li class="{{ 'receiveddocument' == request()->path() ? 'active' : ''}}">
-            <a href="/receiveddocument">
+          <li class="{{ 'search' == request()->path() ? 'active' : ''}}">
+            <a href="/search">
               <i class="fa fa-search"></i>
-              <p>Received Documents</p>
+              <p>Search Document</p>
             </a>
           </li>
-          <li class="{{ 'sentdocument' == request()->path() ? 'active' : ''}}">
-            <a href="/sentdocument">
-              <i class="glyphicon glyphicon-user"></i>
-              <p>Sent Document</p>
+          
+          
+          
+          <li class="{{ 'changeProfile/{id} ' == request()->path() ? 'active' : ''}}">
+            <a href="/changeProfile/{{ Auth::user()->id }}">
+              <i class="now-ui-icons users_single-02"></i>
+              <p> Update Profile</p>
             </a>
           </li>
-          <li >
-            <a href="./tables.html">
-              <i class="now-ui-icons design_bullet-list-67"></i>
-              <p>Table List</p>
-            </a>
-          </li>
-          <li>
-            <a href="./typography.html">
-              <i class="now-ui-icons text_caps-small"></i>
-              <p>Typography</p>
-            </a>
-          </li>
-          <li class="active-pro">
-            <a href="./upgrade.html">
-              <i class="now-ui-icons arrows-1_cloud-download-93"></i>
-              <p>Upgrade to PRO</p>
-            </a>
-          </li>
+
+          
+         
         </ul>
       </div>
-    </div>
-    <div class="main-panel" id="main-panel">
+    </div> 
+    <div class="main-panel" id="main-panel">  
+
+    
+     
+ <!-- <div id="navbar">
+		
+<ul>
+	
+	<li><a href="home.html">Home</a></li>
+	<li><a href="about.html">About Us</a></li>
+	<li><a href="products.html">Products</a></li>
+	
+</ul>
+
+	</div>   -->
       <!-- Navbar -->
-      <nav class="navbar navbar-expand-lg navbar-transparent  bg-primary  navbar-absolute">
-        <div class="container-fluid">
+      <nav class="navbar navbar-expand-lg navbar-transparent  bg-primary  navbar-absolute" >
+        <div class="container">
           <div class="navbar-wrapper">
             <div class="navbar-toggle">
               <button type="button" class="navbar-toggler">
@@ -132,23 +186,27 @@
             </div>
             <table style="width:100%">
             <tr>
-            <th><img src="{{ URL::to('/assets/img/logo2.png') }}" alt="Smiley face" style="float:left;width:70px;height:70px;"></th>
+            <th></th> &nbsp;
+            
             <th></th>
             <th></th>
             <th></th>
             <th></th>
-             <th>Document Tracking System</th>
+             <th><h5><br></h5></th>
     
             </tr>
             <tr>
+          
            <td></td>
            <td></td>
            <td></td>
            <td></td>
            <td></td>
-            <td>Sabaragamuwa University of Sri Lanka </td>
+            
          </tr>
+            
   </table>
+  
             
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
@@ -157,29 +215,15 @@
             <span class="navbar-toggler-bar navbar-kebab"></span>
           </button>
           <div class="collapse navbar-collapse justify-content-end" id="navigation">
-            <form>
-              <div class="input-group no-border">
-                <input type="text" value="" class="form-control" placeholder="Search...">
-                <div class="input-group-append">
-                  <div class="input-group-text">
-                    <i class="now-ui-icons ui-1_zoom-bold"></i>
-                  </div>
-                </div>
-              </div>
-            </form>
+          
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link" href="#pablo">
-                  <i class="now-ui-icons media-2_sound-wave"></i>
-                  <p>
-                    <span class="d-lg-none d-md-block">Stats</span>
-                  </p>
-                </a>
-              </li>
-              <ul class="nav navbar-nav navbar-right">
+                 
+              </li> 
+                                    <ul class="nav navbar-nav navbar-right">
               <div class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span></span>
+                                    {{Auth::user()->name}} <span></span>
                                 </a>
 
                                 <div class="dropdown-content" >
@@ -187,181 +231,47 @@
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                          {{ __('Logout')}}
+                                          {{ __('Logout')}}<br><br> 
                                           
                                         </a>
+
+                                       
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
                                         </form>
-                                    </li>
+                                    </li>  
                                 </div>
                             </div>
-                            </ul>
-              <!--<li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="now-ui-icons location_world"></i>
-                  <p>
-                    <span class="d-lg-none d-md-block">Some Actions</span>
-                  </p>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-              </li>-->
-              <li class="nav-item">
-                <a class="nav-link" href="#pablo">
+                            </ul> 
+              
+             
+            </ul> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 
+              <!--
+             <li class="nav-item">
+                <a class="nav-link" href="/changeProfile/{{ Auth::user()->id }}">
                   <i class="now-ui-icons users_single-02"></i>
                   <p>
                     <span class="d-lg-none d-md-block">Account</span>
                   </p>
                 </a>
-              </li>
+              </li>  -->
             </ul>
           </div>
         </div>
       </nav>
-      <!-- End Navbar -->
       
+      <!-- End Navbar -->
+      <!--style="background-color:#00264d"-->
       <div class="panel-header panel-header-sm">
       </div>
-      <div class="content">
+      <div class="content" > 
       @yield('content')
         
           </div>
-         <!-- <div class="col-md-12">
-            <div class="card card-plain">
-              <div class="card-header">
-                <h4 class="card-title"> Table on Plain Background</h4>
-                <p class="category"> Here is a subtitle for this table</p>
-              </div>
-              <div class="card-body">
-                <div class="table-responsive">
-                  <table class="table">
-                    <thead class=" text-primary">
-                      <th>
-                        Name
-                      </th>
-                      <th>
-                        Country
-                      </th>
-                      <th>
-                        City
-                      </th>
-                      <th class="text-right">
-                        Salary
-                      </th>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>
-                          Dakota Rice
-                        </td>
-                        <td>
-                          Niger
-                        </td>
-                        <td>
-                          Oud-Turnhout
-                        </td>
-                        <td class="text-right">
-                          $36,738
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          Minerva Hooper
-                        </td>
-                        <td>
-                          Curaçao
-                        </td>
-                        <td>
-                          Sinaai-Waas
-                        </td>
-                        <td class="text-right">
-                          $23,789
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          Sage Rodriguez
-                        </td>
-                        <td>
-                          Netherlands
-                        </td>
-                        <td>
-                          Baileux
-                        </td>
-                        <td class="text-right">
-                          $56,142
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          Philip Chaney
-                        </td>
-                        <td>
-                          Korea, South
-                        </td>
-                        <td>
-                          Overland Park
-                        </td>
-                        <td class="text-right">
-                          $38,735
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          Doris Greene
-                        </td>
-                        <td>
-                          Malawi
-                        </td>
-                        <td>
-                          Feldkirchen in Kärnten
-                        </td>
-                        <td class="text-right">
-                          $63,542
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          Mason Porter
-                        </td>
-                        <td>
-                          Chile
-                        </td>
-                        <td>
-                          Gloucester
-                        </td>
-                        <td class="text-right">
-                          $78,615
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          Jon Porter
-                        </td>
-                        <td>
-                          Portugal
-                        </td>
-                        <td>
-                          Gloucester
-                        </td>
-                        <td class="text-right">
-                          $98,615
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> -->
-      <footer class="footer">
+         
+                        
+          <footer class="footer">
         <div class=" container-fluid ">
           <nav>
             <ul>
@@ -371,19 +281,15 @@
                   About Us
                 </a>
               </li>
-
               <li>
                 <a href="">
               Tel - 0453454519
               </a>
               </li>
-              
             </ul>
           </nav>
           <div class="copyright" id="copyright">
-            &copy; 2020, All rights reserved by Sabaragamuwa University of Sri Lanka, PO Box.02, Pambahinna, 70140, Sri Lanka<script>
-              
-            </script>
+            &copy;2020, All rights reserved by Sabaragamuwa University of Sri Lanka, PO Box.02, Pambahinna, 70140, Sri Lanka 
           </div>
         </div>
       </footer>
@@ -393,6 +299,7 @@
   <script src="../assets/js/core/jquery.min.js"></script>
   <script src="../assets/js/core/popper.min.js"></script>
   <script src="../assets/js/core/bootstrap.min.js"></script>
+  <script src="{{ asset('assets/js/dataTables.min.js')}}"></script>
   <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
   <!--  Google Maps Plugin    -->
   <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>

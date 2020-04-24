@@ -1,19 +1,4 @@
-<!--
 
-=========================================================
-* Now UI Dashboard - v1.5.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/now-ui-dashboard
-* Copyright 2019 Creative Tim (http://www.creative-tim.com)
-
-* Designed by www.invisionapp.com Coded by www.creative-tim.com
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
--->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -58,12 +43,13 @@
 
 <body class="">
   <div class="wrapper ">
-    <div class="sidebar" data-color='red'>
+    <div class="sidebar" data-color='white'>
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
     -->
-      <div class="logo">
-       <h3>Admin Dashboard<h3>
+    <div class="logo"><br><br>
+    <img src="{{ URL::to('/assets/img/1.png') }}" alt="Smiley face" style="float:left;width:40px;height:40px;"> 
+       <h5 style="color:rgb(19, 4, 48)" &nbsp &nbsp>Document Tracker</h5><br><br><br>
       </div>
       <div class="sidebar-wrapper" id="sidebar-wrapper">
         <ul class="nav">
@@ -73,55 +59,28 @@
               <p>Dashboard</p>
             </a>
           </li>
-          <li>
-            <a href="./icons.html">
-              <i class="fa fa-fw fa-home"></i>
-              <p> Home</p>
-            </a>
-          </li>
-          <li class="{{ 'branch' == request()->path() ? 'active' : ''}}">
-            <a href="/branch">
-              <i class="fa fa-fw fa-home"></i>
-              <p> Add New brnch</p>
-            </a>
-          </li>
+          
+          
           <li class="{{ 'document' == request()->path() ? 'active' : ''}}">
             <a href="/document">
-              <i class="fa fa-search"></i>
-              <p>View Documents</p>
+              <i class="fa fa-file"></i>
+              <p>Manage Documents</p>
             </a>
           </li>
-          <li>
-            <a href="./user.html">
-              <i class="glyphicon glyphicon-user"></i>
-              <p>Add new Admin</p>
-            </a>
+          
           </li>
           <li class="{{ 'role-register' == request()->path() ? 'active' : ''}}" >
             <a href="/role-register">
               <i class="now-ui-icons users_single-02"></i>
-              <p>User Profile</p>
+              <p>Manage Profiles</p>
             </a>
           </li>
           <li >
+          </li>
+          
+          <li >
 
-          <!--
-            <a href="./tables.html">
-              <i class="now-ui-icons design_bullet-list-67"></i>
-              <p>Table List</p>
-            </a>
-          </li>
-          <li>
-            <a href="./typography.html">
-              <i class="now-ui-icons text_caps-small"></i>
-              <p>Typography</p>
-            </a>
-          </li>
-          <li class="active-pro">
-            <a href="./upgrade.html">
-              <i class="now-ui-icons arrows-1_cloud-download-93"></i>
-              <p>Upgrade to PRO</p>
-            </a>  -->
+          
           </li>
         </ul>
       </div>
@@ -136,17 +95,17 @@
                 <span class="navbar-toggler-bar bar1"></span>
                 <span class="navbar-toggler-bar bar2"></span>
                 <span class="navbar-toggler-bar bar3"></span>
-              </button>
+              </button> 
             </div>
             <table style="width:100%">
             <tr>
-            <th><img src="{{ URL::to('/assets/img/logo2.png') }}" alt="Smiley face" style="float:left;width:70px;height:70px;"></th>
+            <th>&nbsp; &nbsp;</th> &nbsp;
             
             <th></th>
             <th></th>
             <th></th>
             <th></th>
-             <th>Document Tracking System</th>
+             <th><h2></h2></th>
     
             </tr>
             <tr>
@@ -156,24 +115,12 @@
            <td></td>
            <td></td>
            <td></td>
-            <td>Sabaragamuwa University of Sri Lanka </td>
+           
          </tr>
+            
   </table>
 
-           <!-- <div class="row">
-                   <div class="col-md-3">
-                    <img src="{{ URL::to('/assets/img/logo2.png') }}" alt="Smiley face" style="float:left;width:50px;height:50px;">
-                    </div>
-                   
-                    <a class="navbar-brand" href="{{ url('/home') }}">
-                    <div class="col-md-6"> 
-                    <h4>Document Tracking System  </h4>
-                    
-                    <h5>Sabaragamuwa University of Sri Lanka </h5>
-                    </div>
-                    </a>
-            <a class="navbar-brand" href="#pablo"><h2>Document Tracking System</h2></a><br>-->
-            
+          
           </div>
           
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
@@ -182,29 +129,20 @@
             <span class="navbar-toggler-bar navbar-kebab"></span>
           </button>
           <div class="collapse navbar-collapse justify-content-end" id="navigation">
-            <form>
-              <div class="input-group no-border">
-                <input type="text" value="" class="form-control" placeholder="Search...">
-                <div class="input-group-append">
-                  <div class="input-group-text">
-                    <i class="now-ui-icons ui-1_zoom-bold"></i>
-                  </div>
-                </div>
-              </div>
-            </form>
+           
             <ul class="navbar-nav">
+
+            
               <li class="nav-item">
-                <a class="nav-link" href="#pablo">
-                  <i class="now-ui-icons media-2_sound-wave"></i>
-                  <p>
-                    <span class="d-lg-none d-md-block">Stats</span>
-                  </p>
-                </a>
-              </li>  
+                 
+                  
+                 
+                
               <ul class="nav navbar-nav navbar-right">
+              
               <div class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span></span>
+                                    {{Auth::user()->name}} <span></span>
                                 </a>
 
                                 <div class="dropdown-content" >
@@ -212,38 +150,22 @@
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                          {{ __('Logout')}}
+                                          {{ __('Logout')}}<br><br> 
                                           
                                         </a>
+
+                                       
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
                                         </form>
-                                    </li>
+                                    </li>  
+                                    <li><a href=" #" style="color:white;">Register</a></li>
                                 </div>
                             </div>
-                            </ul>
-              <!--<li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="now-ui-icons location_world"></i>
-                  <p>
-                    <span class="d-lg-none d-md-block">Some Actions</span>
-                  </p>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-              </li>-->
-              <li class="nav-item">
-                <a class="nav-link" href="#pablo">
-                  <i class="now-ui-icons users_single-02"></i>
-                  <p>
-                    <span class="d-lg-none d-md-block">Account</span>
-                  </p>
-                </a>
-              </li>
+                            </ul> 
+              
+             
             </ul>
           </div>
         </div>
@@ -256,136 +178,9 @@
       @yield('content')
         
           </div>
-         <!-- <div class="col-md-12">
-            <div class="card card-plain">
-              <div class="card-header">
-                <h4 class="card-title"> Table on Plain Background</h4>
-                <p class="category"> Here is a subtitle for this table</p>
-              </div>
-              <div class="card-body">
-                <div class="table-responsive">
-                  <table class="table">
-                    <thead class=" text-primary">
-                      <th>
-                        Name
-                      </th>
-                      <th>
-                        Country
-                      </th>
-                      <th>
-                        City
-                      </th>
-                      <th class="text-right">
-                        Salary
-                      </th>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>
-                          Dakota Rice
-                        </td>
-                        <td>
-                          Niger
-                        </td>
-                        <td>
-                          Oud-Turnhout
-                        </td>
-                        <td class="text-right">
-                          $36,738
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          Minerva Hooper
-                        </td>
-                        <td>
-                          Curaçao
-                        </td>
-                        <td>
-                          Sinaai-Waas
-                        </td>
-                        <td class="text-right">
-                          $23,789
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          Sage Rodriguez
-                        </td>
-                        <td>
-                          Netherlands
-                        </td>
-                        <td>
-                          Baileux
-                        </td>
-                        <td class="text-right">
-                          $56,142
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          Philip Chaney
-                        </td>
-                        <td>
-                          Korea, South
-                        </td>
-                        <td>
-                          Overland Park
-                        </td>
-                        <td class="text-right">
-                          $38,735
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          Doris Greene
-                        </td>
-                        <td>
-                          Malawi
-                        </td>
-                        <td>
-                          Feldkirchen in Kärnten
-                        </td>
-                        <td class="text-right">
-                          $63,542
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          Mason Porter
-                        </td>
-                        <td>
-                          Chile
-                        </td>
-                        <td>
-                          Gloucester
-                        </td>
-                        <td class="text-right">
-                          $78,615
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          Jon Porter
-                        </td>
-                        <td>
-                          Portugal
-                        </td>
-                        <td>
-                          Gloucester
-                        </td>
-                        <td class="text-right">
-                          $98,615
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> -->
+         
+                        
+                       
       <footer class="footer">
         <div class=" container-fluid ">
           <nav>

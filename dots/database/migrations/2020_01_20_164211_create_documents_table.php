@@ -18,7 +18,7 @@ class CreateDocumentsTable extends Migration
             $table->string('barcode');
             $table->string('file_name');
             $table->string('date');
-            $table->string('sender_branch_name');
+            $table->string('sender_branch_name')->default(DB::raw('{{ Auth::user()->branchname }}'));;
             $table->string('receiver_branch_name');
             $table->timestamps();
         });

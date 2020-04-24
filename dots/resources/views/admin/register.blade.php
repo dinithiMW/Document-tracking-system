@@ -8,11 +8,23 @@
 
 
 @section('content')
+<div class="flex-center position-ref full-height">
+            @if (Route::has('login'))
+                <div class="top-right links">
+                    @if (Auth::check())
+                        <a href="{{ url('/home') }}">Home</a>
+                    @else
+                        <a href="{{ url('/login') }}">Login</a>
+                        <a href="{{ url('/register') }}">Register</a>
+                    @endif
+                </div>
+            @endif
 <div class="row">
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h4 class="card-title"> Registered Branch Admins</h4>
+                <h4 class="card-title"> Registered Branch Admins</h4> 
+               
                 @if(session('status'))
                    <div class="alert alert-success" role="alert">
                      {{ session('status')}}
@@ -23,28 +35,28 @@
                 <div class="table-responsive">
                   <table class="table">
                     <thead class=" text-primary">
-                    <th>
+                    <th style="color:rgb(19, 4, 48)">
                       Id
                       </th>
-                      <th>
+                      <th style="color:rgb(19, 4, 48)">
                         Name
                       </th>
-                      <th>
+                      <th style="color:rgb(19, 4, 48)">
                         Phone Number
                       </th>
-                      <th>
+                      <th style="color:rgb(19, 4, 48)">
                         User Type
                       </th>
-                      <th>
+                      <th style="color:rgb(19, 4, 48)">
                         Branch Name
                       </th>
-                      <th>
+                      <th style="color:rgb(19, 4, 48)">
                         Email
                       </th>
-                      <th class="text-right">
+                      <!--   <th class="text-right">
                         EDIT
-                      </th>
-                      <th class="text-right">
+                      </th> -->
+                      <th class="text-right" style="color:rgb(19, 4, 48)">
                         DELETE
                       </th>
                     </thead>
@@ -72,12 +84,24 @@
                         {{ $row->email }}
                         </td>
  
+                        <!--
                         <td class="text-right">
                          <a href="/role-edit/{{ $row->id }}" class="btn btn-success">EDIT</a>
-                        </td>
+                        </td>   -->
                         <td class="text-right">
-                         <a href="#" class="btn btn-danger">DELETE</a>
+                        <form action="{{ url('role-delete/'.$row->id) }}" method="POST">
+                        {{ csrf_field()}}
+                        {{ method_field('DELETE') }}
+                        <button type="submit" class="btn btn-danger">DELETE</button>
+                        </form>
                         </td>
+
+                        
+                       
+                        
+                       
+                        
+                       
                       </tr>
                       @endforeach
                       

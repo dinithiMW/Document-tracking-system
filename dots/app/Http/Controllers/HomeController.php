@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+Use Charts;
 
 class HomeController extends Controller
 {
@@ -22,7 +23,14 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {    
+       /* $chart = Charts::database(Scand::all(),'line', 'highcharts')
+        ->setResponsive(false)
+        
+        ->setWidth(0)
+        ->groupBy('branch');
+        
+        return view('home',['chart'=>$chart]);*/
         return view('home');
     }
 }

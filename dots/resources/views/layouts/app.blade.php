@@ -6,52 +6,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="csrf-token" content="{{ csrf_token() }}" >
 
     <title>{{ config('app.name', 'Sabaragamuwa University Of Sri Lanka') }}</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    
 </head>
 <body>
-    <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
+    <div id="app" style=" background-color: #ebebe0; height:700px">
+        <nav class="navbar navbar-default navbar-static-top" style="color:white; background-color:  #00004d; height:80px;">
             <div class="container">
                 <div class="navbar-header">
 
                     <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                        <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
+                    
+                    <!-- Branding Image  -->
+                    <table style="width:100%">
+            <tr>
+            <th><img src="{{ URL::to('/assets/img/logo2.png') }}" alt="Smiley face" style="float:left;width:70px;height:70px;">&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+             <th><h2>Document Tracking System</h2></th>
+    
+            </tr>
+            <tr>
+          
+         <td></td>
+           <td></td>
+           <td></td>
+           <td></td>
+           <td></td>
+            <td> </td>
+         </tr>
+  </table>
+                </div> 
+                
 
-                    <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                   <strong> Sabaragamuwa University Of Sri Lanka</strong>
-                    </a>
-                </div>
-
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
+                <div class="collapse navbar-collapse" id="app-navbar-collapse" >
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                         &nbsp;
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav navbar-right">
+                    <ul class="nav navbar-nav navbar-right" >
                         <!-- Authentication Links -->
-                        @if (Auth::guest())
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
+                        @if (Auth::guest('admin'))
+                            <li><a href="{{ route('login') }}" style="color: white;">Login</a></li>
+                            <li><a href="{{ route('register') }}" style="color:white;">Register</a></li> 
                         @else
+                        
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
+                               
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
