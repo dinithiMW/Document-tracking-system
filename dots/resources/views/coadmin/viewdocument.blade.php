@@ -25,7 +25,7 @@
                         <div class="form-group{{ $errors->has('barcode') ? ' has-error' : '' }}">
                             <label for="barcode" class="col-md-4 control-label"></label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <input id="barcode" type="text" class="form-control" name="barcode" value="{{ old('barcode') }}" placeholder="Scan Here" required autofocus>
 
                                 @if ($errors->has('barcode'))

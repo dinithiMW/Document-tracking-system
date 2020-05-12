@@ -167,11 +167,13 @@ public function profileupdate(Request $request, $id){
     public function search(Request $request){
         //if($request->get('search')){
         $search = $request->get('search');
+        $search2 = $request->get('search');
         $branch_name=Auth::user()->branchname;
         // $scands = Scand::where('barcode', 'like', '%'.$search.'%')->paginate(5);
-        $scands = Scand::where('barcode',  'like', '%'.$search.'%')->orderBy('id','desc')->paginate(10);//->groupBy('branch_name');
+        $scands = Scand::where('barcode',  'like', '%'.$search.'%')->orderBy('id','desc')->paginate(15);
+        $scands2 = Scand::where('barcode',  'like', '%'.$search.'%')->orderBy('id','desc')->paginate(1);
         //$scands = Scand::where('branch_name', 'like', '%'.$branch_name.'%');
-        return view('Coadmin.search',['scands'=> $scands]);
+        return view('Coadmin.search',['scands'=> $scands],['scands2'=> $scands2]);
         //}
         
         //else{
